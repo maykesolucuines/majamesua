@@ -399,7 +399,7 @@ if(mensaje.includes('Apagar todas las lámparas')|| mensaje.includes('Apagar tod
     //voz.text = mensaje
     }
 
-    voz.rate = 0.5; // velocidad de reproduccion valor menor mas lento
+    voz.rate = 0.9; // velocidad de reproduccion valor menor mas lento
     window.speechSynthesis.speak(voz)
 }
 
