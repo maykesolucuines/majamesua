@@ -238,14 +238,14 @@ function voz(texto) {
     var textoAEscuchar = texto;
     var mensaje = new SpeechSynthesisUtterance();
     mensaje.text = textoAEscuchar;
-    mensaje.volume = 1;
+    mensaje.volume = 0.5;
     mensaje.rate = 0.9;
-    mensaje.pitch = 1;
+    mensaje.pitch = 0;
     // ¡Parla!
     //document.getElementById("all").style.visibility = "visible";
     //setTimeout(() => {
         //document.getElementById("all").style.visibility = "hidden";  
         //document.getElementById("all2").style.visibility = "visible";      
    // }, 4000);
-    speechSynthesis.speak(mensaje);
+    //speechSynthesis.speak(mensaje);
 }
