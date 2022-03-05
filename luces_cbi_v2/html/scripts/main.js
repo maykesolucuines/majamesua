@@ -37,6 +37,11 @@ annyang.addCallback('result', function () {
 
 const comandos = {
     // SALUDO
+    
+    "Andrés": () => {
+        voz("Andrés Osorio, es Cachon");
+    },
+    
     "okey": () => {
         voz("Bienvenido de nuevo, señor");
     },
