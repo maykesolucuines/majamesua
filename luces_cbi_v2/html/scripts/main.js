@@ -39,7 +39,7 @@ const comandos = {
     // SALUDO
     
     "Andrés": () => {
-        voz("Andrés Osorio, es Cachon");
+        voz("Andrés Osorio, es Cachón");
     },
     
     "okey": () => {
