@@ -80,7 +80,7 @@ var _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator 
             e = new d,
             e.maxAlternatives = 5,
             e.continuous = "http:" === a.location.protocol,
-            e.lang = "en-US",
+            e.lang = "es-CO",
             e.onstart = function() {
                 n = !0,
                 u(h.start)
