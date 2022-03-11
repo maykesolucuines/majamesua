@@ -1,26 +1,41 @@
 const contenido = document.querySelector('.contenido')
-const btnGrabarTexto = document.querySelector('.btn-grabar')
+var mensaje;
+
+ /* Evento para empezar pulsado el boton */
+    
+function start() {
+   reconocimiento.start();
+   document.getElementById("btn").style.display = "none"   
+
+}
 
 /* Primero creamos los objetos para poder grabar nuestra voz con el microfono */
-const reconocimientoVoz = window.SpeechRecognition || window.webkitSpeechRecognition
+const reconocimientoVoz = window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition || window.oSpeechRecognition;
+
 const reconocimiento = new reconocimientoVoz()
 /* metodo que se ejecuta al empezar a grabar */
 reconocimiento.onstart = ()=>{
-    contenido.innerHTML = 'cual es tu peticion...'
+contenido.innerHTML = 'Escucho...'
 }
+
 /* Metodo que se ejecuta al terminar la grabación */
 reconocimiento.onresult = event =>{
     let mensaje = event.results[0][0].transcript
     contenido.innerHTML = mensaje
     leerTextoCondicionado(mensaje)
+      
+    setTimeout(() => { 
+        start();        
+        },1000); 
 }
-/* Función que se lanza para locutar lo grabado 
-const leerTextoSimple = (mensaje)=>{
-    const voz = new SpeechSynthesisUtterance()
-    voz.text = mensaje
-    window.speechSynthesis.speak(voz)
-}    
-*/
+
+reconocimiento.onerror = function(event) {
+    //contenido.innerHTML  = 'Error: ' + event.error;
+    contenido.innerHTML = 'No escucho';
+    setTimeout(() => { 
+        start();        
+        },1500); 
+}
 
  /*Función que condiciona la respuesta dependiendo de el contenido de la grabación */
 const leerTextoCondicionado = (mensaje)=>{
@@ -263,10 +278,11 @@ console.log('Mensaje sw10 on');
 }else{
 //voz.text = mensaje
 }
+    
 /////////// Encender todas las lamparas
 if(mensaje.includes('encender todas las lámparas') || mensaje.includes('encender todas las luces')){
-voz.text = 'OK'
-
+voz.text = 'LISTO'
+    
 setTimeout(() => {
 var channel = ably.channels.get(topic_raiz+"/actions/sw1");
 channel.publish(clientId, "1"); 
@@ -333,7 +349,7 @@ console.log('Mensaje sw10 on');
 
 /////////// Apagar todas las lamparas
 if(mensaje.includes('Apagar todas las lámparas')|| mensaje.includes('Apagar todas las luces')){
-    voz.text = 'OK'
+    voz.text = 'LISTO'
     
     setTimeout(() => {
     var channel = ably.channels.get(topic_raiz+"/actions/sw1");
@@ -398,17 +414,16 @@ if(mensaje.includes('Apagar todas las lámparas')|| mensaje.includes('Apagar tod
     }else{
     //voz.text = mensaje
     }
+    
+/////////// Apagar todas las lamparas
+if(mensaje.includes('apaga te')|| mensaje.includes('reiníciate')){
+voz.text = 'Adíos'
+location.reload();
+}else{
+ //voz.text = mensaje
+}
 
     voz.rate = 0.5; // velocidad de reproduccion valor menor mas lento
     window.speechSynthesis.speak(voz)
 }
-
-
-
-
-/* Evento para empezar a grabar pulsado el boton */
-btnGrabarTexto.addEventListener('click', ()=>{
-    reconocimiento.start()
-})
-
 
