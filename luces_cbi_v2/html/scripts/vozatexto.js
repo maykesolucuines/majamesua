@@ -37,7 +37,7 @@ reconocimiento.onresult = event =>{
       
     setTimeout(() => { 
         start();        
-        },1000); 
+        },2000); 
 }
 
 reconocimiento.onerror = function(event) {
@@ -437,7 +437,7 @@ location.reload();
  //voz.text = mensaje
 }
 
-    voz.rate = 0.5; // velocidad de reproduccion valor menor mas lento
+    voz.rate = 0.8; // velocidad de reproduccion valor menor mas lento
     window.speechSynthesis.speak(voz)
 }
 
