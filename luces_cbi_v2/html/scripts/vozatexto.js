@@ -16,6 +16,11 @@ const reconocimiento = new reconocimientoVoz()
 /* metodo que se ejecuta al empezar a grabar */
 reconocimiento.onstart = ()=>{
 contenido.innerHTML = 'Escucho...'
+ 
+     setTimeout(() => {
+        document.getElementById("all").style.visibility = "hidden";  
+        document.getElementById("all2").style.visibility = "visible";      
+    }, 2000);
 }
 
 /* Metodo que se ejecuta al terminar la grabación */
@@ -23,6 +28,12 @@ reconocimiento.onresult = event =>{
     let mensaje = event.results[0][0].transcript
     contenido.innerHTML = mensaje
     leerTextoCondicionado(mensaje)
+  
+   document.getElementById("all").style.visibility = "visible";
+   setTimeout(() => {
+    document.getElementById("all").style.visibility = "hidden";  
+    document.getElementById("all2").style.visibility = "visible";      
+}, 1000);
       
     setTimeout(() => { 
         start();        
@@ -30,6 +41,9 @@ reconocimiento.onresult = event =>{
 }
 
 reconocimiento.onerror = function(event) {
+ 
+  document.getElementById("all2").style.display="block"
+ 
     //contenido.innerHTML  = 'Error: ' + event.error;
     contenido.innerHTML = 'No escucho';
     setTimeout(() => { 
