@@ -1,13 +1,13 @@
 const contenido = document.querySelector('.contenido')
 const btnGrabarTexto = document.querySelector('.btn-grabar')
 
-/* Primero creamos los objetos para poder grabar nuestra voz con el microfono */
-const reconocimientoVoz = window.SpeechRecognition || window.webkitSpeechRecognition
-const reconocimiento = new reconocimientoVoz()
+
 /* metodo que se ejecuta al empezar a grabar */
 reconocimiento.onstart = ()=>{
     contenido.innerHTML = 'cual es tu peticion...'
 }
+
+
 /* Metodo que se ejecuta al terminar la grabación */
 reconocimiento.onresult = event =>{
     let mensaje = event.results[0][0].transcript
