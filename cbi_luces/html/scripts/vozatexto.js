@@ -20,7 +20,7 @@ function aranque() {
     if (Reconocimiento.resultValue) {
       mensaje = Reconocimiento.resultString;
       // Show user
-      texto_salida.html(mensaje);
+      contenido.innerHTML= mensaje;
       console.log(mensaje);
     }
     leerTextoCondicionado(mensaje)
@@ -38,7 +38,7 @@ console.log(event.error);
   //////////////////////////////////////////////////////////////////////////////////////
   Reconocimiento.onStart = function(event) {
     setTimeout(() => { 
-        contenido.innerHTML = 'cual es tu peticion...' 
+        contenido.innerHTML = 'Escucho...' 
         console.log("sonido inicio");     
         },1000); 
   }
