@@ -56,7 +56,7 @@ console.log(event.error);
 
  /*Función que condiciona la respuesta dependiendo de el contenido de la grabación */
 const leerTextoCondicionado = (mensaje)=>{
-    //const voz = new SpeechSynthesisUtterance()
+    const voz = new SpeechSynthesisUtterance()
     if(mensaje.includes('lámpara 1 prender') || mensaje.includes('lámpara 1 encender') || mensaje.includes('encender lámpara uno') || mensaje.includes('encender lámpara 1')){
         //voz.text = 'Listo!!!'
         var channel = ably.channels.get(topic_raiz+"/actions/sw1");
@@ -305,7 +305,7 @@ console.log('Mensaje sw10 on');
 }
 /////////// Apagar todas las lamparas
 if(mensaje.includes('Apagar todas las lámparas')|| mensaje.includes('Apagar todas las luces')){
-    //voz.text = 'Listo!!!'
+    voz.text = 'Listo!!!'
     
     setTimeout(() => {
     var channel = ably.channels.get(topic_raiz+"/actions/sw1");
@@ -378,8 +378,8 @@ if(mensaje.includes('apágate') || mensaje.includes('reiníciate') || mensaje.in
 //voz.text = mensaje
 }
 
-   // voz.rate = 0.9; // velocidad de reproduccion valor menor mas lento
-   // window.speechSynthesis.speak(voz)
+    voz.rate = 0.9; // velocidad de reproduccion valor menor mas lento
+    window.speechSynthesis.speak(voz)
 }
 
 
