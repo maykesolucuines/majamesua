@@ -57,7 +57,7 @@ console.log(event.error);
 
 const leerTextoCondicionado = (mensaje)=>{
     const voz = new SpeechSynthesisUtterance()
-    if(mensaje.includes('qué hora es') || mensaje.includes('dime la hora')){
+    if(mensaje.includes('qué hora es') || mensaje.includes('dime la hora') || mensaje.includes('Dime la hora')){
       
         var date = new Date;
         var hours = date.getHours();
@@ -90,7 +90,7 @@ const leerTextoCondicionado = (mensaje)=>{
   
   const leerTextoCondicionado = (mensaje)=>{
     const voz = new SpeechSynthesisUtterance()
-    if(mensaje.includes('qué día es hoy')){
+    if(mensaje.includes('qué día es hoy')|| mensaje.includes('Qué día es hoy')){
       
         var date = new Date;
         var dia = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
