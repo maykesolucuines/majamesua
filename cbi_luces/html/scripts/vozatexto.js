@@ -48,10 +48,56 @@ console.log(event.error);
     setTimeout(() => {
       console.log("sonido Termidado");
       Reconocimiento.start();     
-        },800); 
+        },1000); 
   }
 
 }
+
+// PREGUNTAS
+
+const leerTextoCondicionado = (mensaje)=>{
+    const voz = new SpeechSynthesisUtterance()
+    if(mensaje.includes('qué hora es') || mensaje.includes('dime la hora')){
+      
+        var date = new Date;
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+      
+        voz.text = 'son las ' + strTime
+      
+    }else{
+        //voz.text = mensaje
+    }
+  
+const leerTextoCondicionado = (mensaje)=>{
+    const voz = new SpeechSynthesisUtterance()
+    if(mensaje.includes('qué fecha es hoy')){
+      
+        var date = new Date;
+        var mes = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+        voz("hoy es " + date.getDate() + " de "+ mes[date.getMonth()] + "del" + date.getFullYear());
+      
+        voz.text = "hoy es " + date.getDate() + " de "+ mes[date.getMonth()] + "del" + date.getFullYear()
+      
+    }else{
+        //voz.text = mensaje
+    }
+  
+  const leerTextoCondicionado = (mensaje)=>{
+    const voz = new SpeechSynthesisUtterance()
+    if(mensaje.includes('qué día es hoy')){
+      
+        var date = new Date;
+        var dia = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
+        voz.text ="hoy es "+ dia[date.getDay()-1];
+    }else{
+        //voz.text = mensaje
+    }
 
 
  /*Función que condiciona la respuesta dependiendo de el contenido de la grabación */
