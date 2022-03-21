@@ -81,8 +81,7 @@ const leerTextoCondicionado = (mensaje)=>{
       
         var date = new Date;
         var mes = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-        voz("hoy es " + date.getDate() + " de "+ mes[date.getMonth()] + "del" + date.getFullYear());
-      
+              
         voz.text = "hoy es " + date.getDate() + " de "+ mes[date.getMonth()] + "del" + date.getFullYear()
       
     }else{
