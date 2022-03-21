@@ -53,10 +53,12 @@ console.log(event.error);
 
 }
 
-// PREGUNTAS
-
+ /*Función que condiciona la respuesta dependiendo de el contenido de la grabación */
 const leerTextoCondicionado = (mensaje)=>{
     const voz = new SpeechSynthesisUtterance()
+    
+    
+// PREGUNTAS
     if(mensaje.includes('qué hora es') || mensaje.includes('dime la hora') || mensaje.includes('Dime la hora')){
       
         var date = new Date;
@@ -72,10 +74,9 @@ const leerTextoCondicionado = (mensaje)=>{
       
     }else{
         //voz.text = mensaje
-    }
+    }  
+ /////////////////////////////////////////////////////////// 
   
-const leerTextoCondicionado = (mensaje)=>{
-    const voz = new SpeechSynthesisUtterance()
     if(mensaje.includes('qué fecha es hoy')){
       
         var date = new Date;
@@ -87,9 +88,8 @@ const leerTextoCondicionado = (mensaje)=>{
     }else{
         //voz.text = mensaje
     }
+////////////////////////////////////////////////////////////////
   
-  const leerTextoCondicionado = (mensaje)=>{
-    const voz = new SpeechSynthesisUtterance()
     if(mensaje.includes('qué día es hoy')|| mensaje.includes('Qué día es hoy')){
       
         var date = new Date;
@@ -97,12 +97,10 @@ const leerTextoCondicionado = (mensaje)=>{
         voz.text ="hoy es "+ dia[date.getDay()-1];
     }else{
         //voz.text = mensaje
-    }
-
-
- /*Función que condiciona la respuesta dependiendo de el contenido de la grabación */
-const leerTextoCondicionado = (mensaje)=>{
-    const voz = new SpeechSynthesisUtterance()
+    }  
+  
+////////////////////////////////// lamparassss ////////////////////////////////////////////////////  
+ 
     if(mensaje.includes('lámpara 1 prender') || mensaje.includes('lámpara 1 encender') || mensaje.includes('encender lámpara uno') || mensaje.includes('encender lámpara 1')){
         //voz.text = 'Listo!!!'
         var channel = ably.channels.get(topic_raiz+"/actions/sw1");
