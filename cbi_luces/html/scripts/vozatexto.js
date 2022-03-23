@@ -30,9 +30,10 @@ Reconocimiento.onError = function(event) {
 console.log(event.error);
   setTimeout(() => { 
     contenido.innerHTML= 'Error: ' + event.error; 
-    Reconocimiento.start();   
+    //Reconocimiento.start();   
+    document.getElementById("btn").style.display = ""
       console.log("Error");     
-      },1500); 
+      },1000); 
 }
 
   //////////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +48,8 @@ console.log(event.error);
   Reconocimiento.onEnd = function(event) {
     setTimeout(() => {
       console.log("sonido Termidado");
-      Reconocimiento.start();     
+      //Reconocimiento.start(); 
+      document.getElementById("btn").style.display = ""      
         },1000); 
   }
 
